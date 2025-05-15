@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matteo Lollo - Portfolio</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    h1, h2, h3 {
+      font-weight: bold;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.95);
+      z-index: 1000;
+      padding: 15px 20px;
+      border-bottom: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      background: linear-gradient(to right, #3b82f6, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #3b82f6;
+    }
+
+    section {
+      padding: 100px 20px 60px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    /* Hero */
+    #home {
+      background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      border: 3px solid #3b82f6;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.1);
+    }
+
+    h1.title {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #3b82f6, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      font-size: 1.1rem;
+      color: #cccccc;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #3b82f6;
+      color: white;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #2563eb;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #3b82f6;
+      color: #3b82f6;
+      margin-left: 10px;
+    }
+
+    .btn-outline:hover {
+      background: #3b82f6;
+      color: white;
+    }
+
+    /* About Section */
+    #about {
+      background: #111111;
+    }
+
+    .about-img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 20px auto;
+    }
+
+    /* Skills Section */
+    #skills {
+      background: #0f0f0f;
+    }
+
+    .skills-grid {
+      display: grid;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .skill-card {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: #333;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .progress {
+      height: 100%;
+      background: linear-gradient(to right, #3b82f6, #a855f7);
+      width: 60%;
+    }
+
+    /* Projects Section */
+    #projects {
+      background: #111111;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .project-card {
+      background: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-img {
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .project-body {
+      padding: 15px;
+    }
+
+    /* Contact Section */
+    #contact {
+      background: #0f0f0f;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #1e1e1e;
+      color: white;
+    }
+
+    form button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #3b82f6;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .socials {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      color: #3b82f6;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0a0a0a;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="logo">Matteo Lollo</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#projects">I miei progetti</a>
+      <a href="#contact">Contattami</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home">
+    <div class="container hero-content">
+      <img src="https://placehold.co/150x150/3b82f6/white?text=ML " alt="Profilo" class="profile-img">
+      <h1 class="title">Matteo Lollo</h1>
+      <p class="subtitle">Un giovane informatico appassionato di hacking etico, Linux e automazione.</p>
+      <div style="margin-top: 20px;">
+        <a href="#projects" class="btn">I miei progetti</a>
+        <a href="#contact" class="btn btn-outline">Contattami</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="container about-content">
+    <h2>Chi sono</h2>
+    <img src="https://placehold.co/600x300/4f46e5/white?text=Termux+Kali+Linux " alt="About me" class="about-img">
+    <p>
+      Ho 13 anni e da poco ho iniziato a esplorare il mondo del penetration testing e dell’utilizzo avanzato di sistemi Linux come Kali Linux e Termux.
+      Mi piace imparare nuove cose ogni giorno, soprattutto riguardo la sicurezza informatica e l’uso avanzato del terminale.
+      Il mio obiettivo è diventare un ethical hacker e contribuire alla sicurezza digitale del futuro.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="container">
+    <h2 class="text-center">Competenze</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Kali Linux</h3>
+        <div class="progress-bar"><div class="progress" style="width: 60%;"></div></div>
+      </div>
+      <div class="skill-card">
+        <h3>Termux</h3>
+        <div class="progress-bar"><div class="progress" style="width: 60%;"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="container">
+    <h2 class="text-center">I miei progetti</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="https://placehold.co/400x250/6366f1/white?text=Port+Scanner " alt="Port Scanner" class="project-img">
+        <div class="project-body">
+          <h3>Port Scanner con Python</h3>
+          <p>Tool per scansionare porte aperte su una rete locale, realizzato in ambiente Termux.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://placehold.co/400x250/8b5cf6/white?text=Termux+Script " alt="Script Termux" class="project-img">
+        <div class="project-body">
+          <h3>Script Termux Automazione</h3>
+          <p>Piccoli script Bash per velocizzare operazioni quotidiane in Termux.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://placehold.co/400x250/4f46e5/white?text=Network+Test " alt="Network Test" class="project-img">
+        <div class="project-body">
+          <h3>Analisi Vulnerabilità Locali</h3>
+          <p>Progetto educativo per capire le basi della sicurezza delle reti domestiche.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container">
+    <h2 class="text-center">Contattami</h2>
+    <form onsubmit="alert('Messaggio inviato!'); return false;">
+      <input type="text" placeholder="Nome" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Oggetto" required>
+      <textarea rows="4" placeholder="Messaggio" required></textarea>
+      <button type="submit">Invia messaggio</button>
+    </form>
+    <div class="socials">
+      <p>Trovatemi anche qui:</p>
+      <a href="#">GitHub</a> • <a href="#">Telegram</a> • <a href="#">Email</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © Matteo Lollo - Tutti i diritti riservati
+  </footer>
+
+</body>
+</html> <link rel="stylesheet" href="style.css">
