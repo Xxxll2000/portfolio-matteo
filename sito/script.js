@@ -60,4 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
-});
+});<!-- ... resto del codice HTML ... -->
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
